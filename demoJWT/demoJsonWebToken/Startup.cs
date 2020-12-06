@@ -41,8 +41,6 @@ namespace demoJsonWebToken
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
             // global cors policy
@@ -53,7 +51,7 @@ namespace demoJsonWebToken
 
             // custom jwt auth middleware
             app.UseMiddleware<JwtMiddleware>();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
